@@ -1,0 +1,1 @@
+./nbody-gui 1600 1600 1500 10000 -f planets.csv 1 16
