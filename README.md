@@ -8,7 +8,7 @@
 - To run the benchmark script, first build the application by executing `bash make.sh`, then execute `benchmark.sh`. This runs the `nbody` command line simulation using a different number of threads and compares their execution times.
 
 ## Errors Encountered
-- During the development of the project, I encountered an issue where my energy calculations were fluctuating significantly between iterations. The root cause was in my kinetic energy function where I was using incorrectly using positional values to compute `velocity^2`. 
+- During the development of the project, I encountered an issue where my energy calculations were fluctuating significantly between iterations. The root cause was in my kinetic energy function where I was incorrectly using positional values to compute `velocity^2`. 
 - I also encountered an issue where my multi-threaded program was updating the position of bodies using `velocity(t+1)` rather than `velocity(t)`. To counteract this issue, I synchronized the threads using a barrier. The barrier makes sure that the correct velocity values are used when each of the threads are updating the positions of their assigned bodies.
 - The last issue I encountered was that some of my calculations were returning `-nan`, i.e. not a number. This was due to the fact that my distance function was in some cases returning zero, and thus other functions were attempting to divide values by zero. To fix this, I changed my distance function so that it returns `1e-10` instead of zero, in the case that the actual distance between the two bodies is zero.
 
